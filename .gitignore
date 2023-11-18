@@ -1,0 +1,36 @@
+# Site output
+/_site
+
+# Dependency directories
+/.bundle
+/vendor/bundle
+/vendor/ruby
+
+# Temporary files
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+
+# Various specific files
+*.log
+*.pid
+*.lock
+*.swp
+*.DS_Store
+
+# Environment variables
+.env
+
+# VSCode-specific files
+.vscode/
+
+# MacOS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
