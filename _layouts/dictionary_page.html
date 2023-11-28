@@ -1,0 +1,72 @@
+---
+layout: default
+---
+<div class="dictionary-header">
+  {% include breadcrumbs.html %}
+  <h1 style = text-transform:uppercase>{{ site.data[page.data_file].title }}</h1>
+</div>
+
+<div class="dictionary-description">
+  <p>The <code style = text-transform:lowercase>{{ site.data[page.data_file].title }}</code> table {{ site.data[page.data_file].description }}</p>
+</div>
+
+{% if site.data[page.data_file].erd_link %}
+<div class="erd-section">
+  <h2>Entity Relationship Diagram</h2>
+  <img src="../{{ site.data[page.data_file].erd_link }}" alt="{{ site.data[page.data_file].title }} ERD">
+</div>
+{% endif %}
+
+<div class="dictionary-table">
+  <h2> <span style = text-transform:uppercase>{{ site.data[page.data_file].title }}</span> fields</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Data Type</th>
+        <th>Description</th>
+        <th>Constraints</th>
+        <th>Keys</th>
+        <th>Indexed</th>
+        <th>Default Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if site.data[page.data_file].include_id %}
+        {% include field_id_tr.html %}
+      {% endif %}
+      {% include common_tr.html %}
+      {% for field in site.data[page.data_file].fields %}
+        <tr>
+          <td><span>{{ field.name }}</span></td>
+          <td><span>{{ field.data_type }}</span></td>
+          <td><span>{{ field.description }}</span></td>
+          <td><span>{% if field.constraints %}{{ field.constraints }} {% else %} -- {% endif %}</span></td>
+          <td><span>{% if field.keys %}{{ field.keys }} {% else %} -- {% endif %}</span></td>
+          <td><span>{% if field.indexed %}{{ field.indexed }} {% else %} -- {% endif %}</span></td>
+          <td><span>{% if field.default_value %}{{ field.default_value }} {% else %} -- {% endif %}</span></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if site.data[page.data_file].table-validations %}
+<div class="table-validations">
+  <h2>Table-level Validations</h2>
+  <p>{{ site.data[page.data_file].validations }}</p>
+</div>
+{% endif %}
+
+{% if site.data[page.data_file].faq %}
+<div class="faq-section">
+  <h2>FAQs</h2>
+    {% for faq_item in site.data[page.data_file].faq %}
+        <details>
+          <summary>{{ faq_item.question }}</summary>
+          <p>{{ faq_item.answer }}</p>
+        </details>
+    {% endfor %}
+</div>
+{% include table_script.html %}
+{% endif %}
