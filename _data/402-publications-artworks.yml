@@ -1,0 +1,36 @@
+title: publications_artworks
+description: creates a many-to-many relationship between <a href="#"><code>publications</code></a> and <a href="#"><code>artwork</code></a>. It records the instances where an artwork is included in a publication, detailing the specific pages on which the artwork is featured.
+erd_link: 
+include_id: false
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    constraints: 
+    keys: PK, FK
+    default_value: 
+
+  - name: publication_id
+    data_type: INT
+    description: REF <a href="#"><code>publications(id)</code></a>
+    constraints: 
+    keys: PK, FK
+    default_value: 
+
+  - name: page_number
+    data_type: INT
+    description: Page number where the artwork is featured
+    constraints: 
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

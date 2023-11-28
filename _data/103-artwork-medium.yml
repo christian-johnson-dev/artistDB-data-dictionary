@@ -1,0 +1,41 @@
+title: artwork_medium
+description: >
+  is a join table between the <a href="#"><code>artwork</code></a> and <a href="#"><code>mediums</code></a> tables. It associates an artwork with a medium used to create it. It also provides a field to indicate if the medium is the primary medium for the artwork.
+
+erd_link: assets/images/artwork_medium_ERD.png
+
+include_id: FALSE
+
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    constraints: NOT NULL
+    keys: FK, PK
+    indexed: Indexed
+    default_value: 
+
+  - name: medium_id
+    data_type: INT
+    description: REF <a href="#"><code>medium(id)</code></a>
+    constraints: NOT NULL
+    keys: FK, PK
+    indexed: Indexed
+    default_value: 
+
+  - name: is_primary
+    data_type: BOOLEAN
+    description: Indicates if the medium is the primary medium for the artwork
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: FALSE
+
+faq:
+  - question: What does the boolean `is_primary` indicate?
+    answer: >
+      The `is_primary` field indicates if the medium is the primary medium for the artwork. This is used to indicate the medium that is most prominent in the artwork. When the artwork is displayed, the primary medium is the one that is listed first.
+
+  - question: Can an artwork have more than one primary medium?
+    answer: >
+      No, an artwork can only have one primary medium. If an artwork has more than one medium, the primary medium should be the one that is most prominent in the artwork. For example, if an artwork is made of oil paint and graphite, the primary medium would be oil paint. The artwork would then be linked to both medium records through the `artwork-medium` join table.

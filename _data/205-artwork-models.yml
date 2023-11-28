@@ -1,0 +1,41 @@
+title: artwork-models
+description: establishes a many-to-many relationship between artworks and models <a href="#"><code>people(id)</code></a>.
+erd_link: 
+include_id: false
+fields:
+- name: model_id
+  data_type: INT
+  description: Reference to the model (person)
+  constraints: NOT NULL
+  keys: FK, PK
+  default_value: 
+
+- name: artwork_id
+  data_type: INT
+  description: Reference to the artwork
+  constraints: NOT NULL
+  keys: FK, PK
+  default_value: 
+  - name: model_id
+    data_type: INT
+    description: Reference to the model (person)
+    constraints: NOT NULL
+    keys: FK, PK
+    default_value: 
+
+  - name: artwork_id
+    data_type: INT
+    description: Reference to the artwork
+    constraints: NOT NULL
+    keys: FK, PK
+    default_value: 
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

@@ -1,0 +1,51 @@
+title: exhibitions_organizations
+description: tracks the venues where exhibitions are held, along with the opening and closing dates for each exhibition at each venue, and specifies a primary organization for each exhibition if needed.
+erd_link: 
+include_id: false
+fields:
+  - name: exhibition_id
+    data_type: INT
+    description: REF <a href="#"><code>exhibitions(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: org_location_id
+    data_type: INT
+    description: REF <a href="#"><code>org_locations(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: opening_date
+    data_type: DATE
+    description: Date when the exhibition opens at the organization
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: closing_date
+    data_type: DATE
+    description: Date when the exhibition closes at the organization
+    constraints: CHECK (closing_date >= opening_date)
+    keys: 
+    default_value: 
+
+  - name: is_primary
+    data_type: BOOLEAN
+    description: Flag as primary organization for the exhibition
+    constraints: NOT NULL
+    keys: 
+    default_value: FALSE
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

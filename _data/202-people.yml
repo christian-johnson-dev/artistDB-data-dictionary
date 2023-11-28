@@ -1,0 +1,29 @@
+title: people
+description: stores a person's first and last name along with a unique id. It is referenced throughout the database to establish ownership of artworks, collaboration on exhibitions, authorship in publications, among various other relationships.
+erd_link: 
+include_id: true
+fields:
+  - name: first_name
+    data_type: VARCHAR(100)
+    description: First name of the person
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: last_name
+    data_type: VARCHAR(100)
+    description: Last name of the person
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

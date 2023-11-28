@@ -1,0 +1,32 @@
+title: artwork-storage
+description: specifies how and where the piece is stored within the studio.
+erd_link: assets/images/artwork-storage_ERD.png
+include_id: true
+fields:
+  - name: wrapping
+    data_type: VARCHAR(255)
+    description: Protective wrapping
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: location
+    data_type: VARCHAR(255)
+    description: General studio location
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: sub_location
+    data_type: VARCHAR(255)
+    description: Subsection of location
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: What differentiates this table form the <a href="#"><code>artwork_location</code></a> join table?
+    answer: The <a href="#"><code>artwork_location</code></a> table tracks the movement of an artwork from one location to another. This table simply tracks the storage of an artwork within the studio.

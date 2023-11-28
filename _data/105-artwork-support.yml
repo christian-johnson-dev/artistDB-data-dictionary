@@ -1,0 +1,26 @@
+title: artwork_support
+description: >
+  is a join table between the <a href="#"><code>artwork</code></a> and <a href="#"><code>supports</code></a> tables. It associates an artwork with a support used to create it. 
+erd_link: assets/images/artwork_support_ERD.png
+include_id: FALSE
+fields:
+  - name: name
+    data_type: VARCHAR(255)
+    description: Name of the support
+    constraints: NOT NULL, UNIQUE
+    keys: 
+    indexed: indexed
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: Description of the support
+    constraints: None
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: The <a href="#"><code>artwork_medium</code></a> join table has a 'is_primary' boolean.  Why is this omitted for the <a href="#"><code>artwork_support</code></a> join table?
+    answer: >
+      When dealing with multiple-supports for an artwork, common practice gives no hierarchy to supports.

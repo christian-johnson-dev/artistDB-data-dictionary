@@ -1,0 +1,41 @@
+title: series
+description: holds values for the series name, description, and year range.
+erd_link: assets/images/series_ERD.png
+include_id: true
+fields:
+  - name: name
+    data_type: VARCHAR(255)
+    description: Name of the series
+    constraints: NOT NULL, UNIQUE
+    keys: 
+    indexed: indexed
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: Description of the series
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: year_start
+    data_type: INT
+    description: Year the series started
+    constraints: '> 0 and <= current year'
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: year_end
+    data_type: INT
+    description: Year the series ended
+    constraints: '<= current year'
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: Can a piece be assigned to more than one series?
+    answer: >
+      No. It is common practice within the art industry to assign a piece to only one series.

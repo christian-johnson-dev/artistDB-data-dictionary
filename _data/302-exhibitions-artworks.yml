@@ -1,0 +1,29 @@
+title: exhibitions_artworks
+description: creates a many to many relationship between <a href="#"><code>exhibitions</code></a> and <a href="#"><code>artwork</code></a> through <a href="#"><code>exhibition_artwork_id</code></a>. It records the artworks that are included in various exhibitions.
+erd_link: 
+include_id: false
+fields:
+  - name: exhibition_id
+    data_type: INT
+    description: REF <a href="#"><code>exhibitions(id)</code></a>
+    constraints: 
+    keys: PK, FK
+    default_value: 
+
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    constraints: 
+    keys: PK, FK
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

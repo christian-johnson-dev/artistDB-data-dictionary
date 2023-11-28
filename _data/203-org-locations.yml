@@ -1,0 +1,30 @@
+title: org_locations
+description: stores information about organizations' locations. Many arts organizations have multiple locations, and this table is used to store information about each location. It is linked to the <a href=#><code>organizations</code></a> table.
+erd_link: 
+include_id: true
+fields:
+- name: organization_id
+  data_type: INT
+  description: REF <a href="#"><code>organizations(id)</code></a>
+  constraints: NOT NULL
+  keys: FK
+  default_value: 
+
+- name: name
+  data_type: VARCHAR(255)
+  description: Location specific name used in conjunction with the organization name
+  constraints: 
+  keys: 
+  default_value: 
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

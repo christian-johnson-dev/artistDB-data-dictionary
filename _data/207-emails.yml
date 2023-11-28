@@ -1,0 +1,43 @@
+title: emails
+description: stores email addresses that are related to either a person <a href="#"><code>people(id)</code></a> or organization <a href="#"><code>org_location(id)</code></a>.
+erd_link: 
+include_id: true
+fields:
+- name: person_id
+  data_type: INT
+  description: REF <a href="#"><code>people(id)</code></a>
+  constraints:
+  keys: FK
+  default_value: 
+
+- name: org_location_id
+  data_type: INT
+  description: REF <a href="#"><code>org_locations(id)</code></a>
+  constraints:
+  keys: FK
+  default_value: 
+
+- name: email
+  data_type: VARCHAR(255)
+  description: The email address
+  constraints: NOT NULL, UNIQUE
+  keys: 
+  default_value: 
+
+- name: email_type
+  data_type: VARCHAR(100)
+  description: Type of the email-- 'main', 'work', etc.
+  constraints: NOT NULL
+  keys: 
+  default_value: "'main'"
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

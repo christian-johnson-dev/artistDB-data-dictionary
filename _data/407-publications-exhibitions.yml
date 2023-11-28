@@ -1,0 +1,36 @@
+title: publications-exhibitions
+description: captures the relationships between publications and exhibitions. This includes identifying what type of publication is associated with an exhibition, such as a catalog, review, or other.
+erd_link: 
+include_id: false
+fields:
+  - name: publication_id
+    data_type: INT
+    description: Identifier for the publication
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: exhibition_id
+    data_type: INT
+    description: Identifier for the exhibition
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: type
+    data_type: pub_ex_type
+    description: Type of the publication-exhibition relationship
+    constraints: NOT NULL
+    keys: 
+    default_value: catalog
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

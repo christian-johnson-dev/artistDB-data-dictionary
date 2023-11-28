@@ -1,0 +1,33 @@
+title: Mediums
+description: catalogs art mediums, each uniquely identified by an ID, and includes the medium's name and an optional description. It's linked to artworks through the <a href=#><code>artwork_medium</code></a> join table, which records the many-to-many association of mediums to artworks.
+
+erd_link: assets/images/mediums_ERD.png
+
+include_id: true
+
+fields:
+  
+  - name: name
+    data_type: VARCHAR(255)
+    description: A string naming a single art medium
+    constraints: NOT NULL, UNIQUE
+    keys: 
+    indexed: Indexed
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: A short description of the medium
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+      
+faq:
+  - question: What is the difference between a medium and a support?
+    answer: >
+      A medium is manipulated upon a support.  For example, oil paint is a medium that is applied to a canvas support. A support is what the art object is built from and the medium is what is applied to the support. In the case of a sculpture, the support is what the sculpture is cast or carved from. A plaster cast sculpture with paint applied to it would have a plaster support and a paint medium. 
+
+  - question: In the case of multi-media, can multiple mediums be entered within one medium record?
+    answer: >
+      No, each medium should be entered as a separate record.  For example, if an artwork is made of oil paint and graphite, there would be two medium records, one for oil paint and one for graphite. The artwork would then be linked to both medium records through the `artwork-medium` join table.

@@ -1,0 +1,120 @@
+title: edition-meta
+description: >
+  records the  participants in an edition of an artwork-- a publisher and manufacturer. It also defines the totals for the different types of reproductions within the editioned work and whether the edition production is complete.
+erd_link: assets/images/edition_meta_ERD.png
+include_id: true
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href=#><code>artwork(id)</code></a>
+    constraints: NOT NULL
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: publisher_id
+    data_type: INT
+    description: REF <a href=#><code>organization(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: manufacturer_id
+    data_type: INT
+    description: REF <a href=#><code>organization(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: total_cost
+    data_type: NUMERIC(10, 2)
+    description: Total cost of the edition
+    constraints: CHECK (total_cost >= 0)
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: total_ed
+    data_type: INT
+    description: Total editioned copies
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_pp
+    data_type: INT
+    description: Total printer's proofs
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_hc
+    data_type: INT
+    description: Total Hors de Commerce copies
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_ap
+    data_type: INT
+    description: Total artist's proofs
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_tp
+    data_type: INT
+    description: Total trial proofs
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_bat
+    data_type: INT
+    description: Total Bon à Tirer copies
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: total_st
+    data_type: INT
+    description: Total state proofs
+    constraints: '>=0,  NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 0
+
+  - name: is_completed
+    data_type: BOOLEAN
+    description: Indicates if the edition is complete
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: TRUE
+
+  - name: notes
+    data_type: TEXT
+    description: Additional notes
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: What is the distinction between the edition_meta and edition table?
+    answer: >
+      The edition_meta table establishes participants in the making of the edition, and quantifies the number of copies in the edition. It also indicates if the edition has been completed. The edition table records the specific pieces/copies in the edition.
+  - question: What is the distinction between the different types of proofs?
+    answer: >
+      See edition_type enum
+  - question: What is the distinction between the publisher and the manufacturer?
+    answer: >
+      The publisher is the organization that commissions the edition. The manufacturer is the organization that produces the edition.

@@ -1,0 +1,27 @@
+title: Organizations
+description: holds the core details about various organizations associated with the artist's work. This information includes names and descriptions of the organizations, and it serves as a central reference that can be associated with people, publications, locations, and artworks through other relational tables.
+erd_link: 
+include_id: true
+fields:
+  - name: name
+    data_type: VARCHAR(255)
+    description: The name of the organization
+    constraints: NOT NULL, UNIQUE
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: A text describing the organization
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

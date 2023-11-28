@@ -1,0 +1,37 @@
+title: publications_people
+description: establishes a many-to-many relationship between <a href="#"><code>publications</code></a>, <a href="#"><code>people</code></a>, and <a href="#"><code>publications_people_role</code></a>s, defining the roles people have in relation to specific publications.
+erd_link: 
+include_id: false
+fields:
+  - name: publication_id
+    data_type: INT
+    description: REF <a href="#"><code>publication(id)</code></a>
+    constraints: NOT NULL
+    keys: FK
+    default_value: 
+
+  - name: person_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: NOT NULL
+    keys: FK
+    default_value: 
+
+  - name: role_id
+    data_type: INT
+    description: REF <a href="#"><code>publications_people_role(id)</code></a>
+    constraints: NOT NULL
+    keys: FK
+    default_value: 
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

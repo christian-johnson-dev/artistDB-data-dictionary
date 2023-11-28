@@ -1,0 +1,30 @@
+title: exhibitions_people_roles
+description: holds the names of roles that people can assume in exhibitions, such as curator, artist, etc. 
+erd_link: 
+include_id: true
+fields:
+  - name: role
+    data_type: VARCHAR(100)
+    description: Name of the role
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: Description of the role
+    constraints: 
+    keys: 
+    default_value: 
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

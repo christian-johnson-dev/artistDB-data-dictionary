@@ -1,0 +1,32 @@
+title: Supports
+description: is a lookup table that holds the names and descriptions of supports. A support is the fundamental material the art object is made of. Examples include canvas, or paper (for 2D works) and bronze or marble for sculpture.
+
+erd_link: assets/images/supports_ERD.png
+
+include_id: true
+
+fields:
+  - name: name
+    data_type: VARCHAR(255)
+    description: Name of the support
+    constraints: NOT NULL, UNIQUE
+    keys: 
+    indexed: indexed
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: Description of the support
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: What is the difference between a medium and a support?
+    answer: >
+      A medium is manipulated upon a support.  For example, oil paint is a medium that is applied to a canvas support. A support is what the art object is built from and the medium is what is applied to the support. In the case of a sculpture, the support is what the sculpture is cast or carved from. A plaster cast sculpture with paint applied to it would have a plaster support and a paint medium.
+  
+  - question: How are multiple supports related to an artwork?
+    answer: >
+      An artwork can have multiple supports. For example, a painting on paper may be mounted on panel. In this case, the artwork would be linked to both the paper and canvas supports through the <a href="#"><code>artwork_support</code></a> join table.

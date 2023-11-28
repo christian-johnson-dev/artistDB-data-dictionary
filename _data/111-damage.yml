@@ -1,0 +1,86 @@
+title: damage
+description: records incidents of damage to a particular artwork or edition piece and provides information on when, where, and how the damage occurred, as well as the estimated and actual costs of repair.
+erd_link: assets/images/damage_ERD.png
+include_id: true
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: Indexed
+    default_value: 
+
+  - name: edition_id
+    data_type: INT
+    description: REF <a href="#"><code>edition(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: Indexed
+    default_value: 
+
+  - name: damage
+    data_type: TEXT
+    description: A short description of the damage
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: date_reported
+    data_type: DATE
+    description: The date when the damage was reported
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: date_occurred
+    data_type: DATE
+    description: The date when the damage occurred
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: is_restorable
+    data_type: BOOLEAN
+    description: Indicates if the damage is restorable
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: date_repaired
+    data_type: DATE
+    description: The date when the damage was repaired
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: estimated_cost
+    data_type: NUMERIC(10, 2)
+    description: Estimated cost of repair
+    constraints: estimated_cost >= 0
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: actual_cost
+    data_type: NUMERIC(10, 2)
+    description: Actual cost of repair
+    constraints: actual_cost >= 0
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: notes
+    data_type: TEXT
+    description: Additional notes regarding the damage
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:

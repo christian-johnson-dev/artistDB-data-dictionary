@@ -1,0 +1,37 @@
+title: exhibitions_people
+description: is a junction table that establishes a many-to-many relationship between exhibitions, people, and the roles they play within those exhibitions (such as curator, artist, etc.). 
+erd_link: 
+include_id: false
+fields:
+  - name: exhibition_id
+    data_type: INT
+    description: REF <a href="#"><code>exhibitions(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: person_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: role_id
+    data_type: INT
+    description: REF <a href="#"><code>exhibitions_people_roles(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

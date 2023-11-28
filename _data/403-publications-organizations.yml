@@ -1,0 +1,36 @@
+title: publications_organizations
+description: maps the many-to-many relationships between publications and organizations, and includes the role of the organization in the context of a publication.
+erd_link: 
+include_id: false
+fields: 
+  - name: publication_id
+    data_type: INT
+    description: REF <a href="#"><code>publications(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: organization_id
+    data_type: INT
+    description: REF <a href="#"><code>organizations(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: role_id
+    data_type: INT
+    description: REF <a href="#"><code>publication_people_roles(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

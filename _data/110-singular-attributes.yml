@@ -1,0 +1,77 @@
+title: singular_attributes
+description: serves as a repository for the distinctive characteristics of individual art pieces, applicable to both singular artworks and those that are part of an edition. It captures specific details such as signatures, inscriptions, and their locations, which are intrinsic to the authenticity and identity of each piece. Additionally, the table tracks the current status of the artwork, including its availability for exhibition and purchase, its condition, and whether it is framed, enabling a detailed inventory of each item's unique properties and exhibition readiness.
+erd_link: assets/images/singular_attributes_ERD.png
+include_id: true
+fields:
+  - name: signature
+    data_type: signature_status
+    description: Status of the artwork's signature
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: unknown
+
+  - name: signature_location
+    data_type: VARCHAR(255)
+    description: Location of the signature on the artwork
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: inscription
+    data_type: VARCHAR(255)
+    description: Inscription details on the artwork
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: inscriptions_location
+    data_type: VARCHAR(255)
+    description: Location of the inscriptions on the artwork
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: available_exhibition
+    data_type: BOOLEAN
+    description: Availability of the artwork for exhibition
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: TRUE
+
+  - name: available_purchase
+    data_type: BOOLEAN
+    description: Availability of the artwork for purchase
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: TRUE
+
+  - name: condition
+    data_type: artwork_condition
+    description: Condition status of the artwork
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: unknown
+
+  - name: is_framed
+    data_type: BOOLEAN
+    description: Indicates if the artwork is framed
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: FALSE
+
+faq:
+  - question: Why separate this data into its own table? Signature, condition, etc could be fields in either artwork or edition table.
+    answer: >
+      If a piece is editioned, these fields at the artwork table level are no longer applicable to the artwork table and would have to be left blank or indicated as "Not applicable".  By placing the fields in a separate table, the data is more normalized and the fields are applicable to both singular artworks and edition pieces.
+  
+  - question: But other material aspects are included in the artwork table-- dimension fields, for example. Why keep those in the artwork table?
+    answer: >
+      The dimensions are the same throughout the whole edition. The signature, inscription, condition, and framing status are not.

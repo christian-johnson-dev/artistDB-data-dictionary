@@ -1,0 +1,35 @@
+title: people_organizations
+description: creates a many-to-many relationship between <a href="#"><code>people</code></a> and organizations through <a href="#"><code>org_location_id</code></a>. It records the roles that individuals have within various organization locations.
+erd_link: 
+include_id: false
+fields:
+  - name: people_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: org_location_id
+    data_type: INT
+    description: REF <a href="#"><code>org_locations(id)</code></a>
+    constraints: NOT NULL
+    keys: PK, FK
+    default_value: 
+
+  - name: role
+    data_type: VARCHAR (100)
+    description: The role of the person in the organization
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

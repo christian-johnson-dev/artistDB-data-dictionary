@@ -1,0 +1,44 @@
+title: exhibitions
+description: holds information about various art exhibitions. It includes details such as the title, type of exhibition, and whether to include bibliographic references in short or full format.
+erd_link: 
+include_id: true
+fields:
+  - name: title
+    data_type: VARCHAR(255)
+    description: Title of the exhibition
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: type
+    data_type: <a href="#"><code>exhibition_type</code></a>
+    description: Type of the exhibition (solo, group, etc.)
+    constraints: NOT NULL
+    keys: 
+    default_value: "'group'"
+
+  - name: include_short_bib
+    data_type: BOOLEAN
+    description: Flag for short exhibition bibliography
+    constraints: NOT NULL
+    keys: 
+    default_value: TRUE
+
+  - name: include_full_bib
+    data_type: BOOLEAN
+    description: Flag for full exhibition bibliography
+    constraints: NOT NULL
+    keys: 
+    default_value: TRUE
+
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

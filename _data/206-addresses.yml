@@ -1,0 +1,85 @@
+title: addresses
+description: stores postal addresses for individuals <a href="#"><code>people(id)</code></a> and organization locations <a href="#"><code>org_locations(id)</code></a>. 
+erd_link: 
+include_id: true
+fields:
+  - name: person_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: NOT NULL if org_location_id is NULL
+    keys: FK
+    default_value: 
+
+  - name: org_location_id
+    data_type: INT
+    description: REF <a href="#"><code>org_locations(id)</code></a>
+    constraints: NOT NULL if person_id is NULL
+    keys: FK
+    default_value: 
+
+  - name: address_type
+    data_type: VARCHAR(100)
+    description: Type of address
+    constraints: NOT NULL
+    keys: 
+    default_value: main
+
+  - name: line_1
+    data_type: VARCHAR(255)
+    description: Street address line 1
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: line_2
+    data_type: VARCHAR(255)
+    description: Street address line 2
+    constraints: 
+    keys: 
+    default_value: 
+
+  - name: city
+    data_type: VARCHAR(255)
+    description: 
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: prov_state
+    data_type: VARCHAR(255)
+    description: Province or state of the address
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: postal_zip
+    data_type: VARCHAR(255)
+    description: Postal or ZIP code of the address
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: country
+    data_type: VARCHAR(255)
+    description: Country of the address
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: notes
+    data_type: TEXT
+    description: Additional notes about the address
+    constraints: 
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

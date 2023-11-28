@@ -1,0 +1,97 @@
+title: artwork_location
+description: joins either an artwork or edition piece to either a person or an organization. It captures additional data about why and when the piece is at the location.
+erd_link: assets/images/artwork_location_ERD.png
+include_id: true
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: edition_id
+    data_type: INT
+    description: REF <a href="#"><code>edition(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: org_location_id
+    data_type: INT
+    description: REF <a href="#"><code>org_location(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: person_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: location_type
+    data_type: <a href="#"><code>location_type</code></a>
+    description: Type of location relationship
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: in storage
+
+  - name: is_current_location
+    data_type: BOOLEAN
+    description: Indicates if this is the current location
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: FALSE
+
+  - name: movement_date
+    data_type: DATE
+    description: Date of movement
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: due_date
+    data_type: DATE
+    description: Due date if applicable
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: provenance_record
+    data_type: BOOLEAN
+    description: Indicates if this location is part of the provenance record
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: FALSE
+
+  - name: notes
+    data_type: TEXT
+    description: Additional notes
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: What is the location_type field?
+    answer: See <a href="#"><code>location_type</code></a> enum for values. Tracks the purpose of the location relationship.
+  
+  - question: What is the is_current_location field?
+    answer: Indicates if this is the current location of the artwork.  Only one location can be current at a time.
+
+  - question: What is the movement_date field?
+    answer: Indicates the date of the location change.
+  
+  - question: What is the provenance_record field?
+    answer: A boolean flag that indicates if the record should be included as official provenance.

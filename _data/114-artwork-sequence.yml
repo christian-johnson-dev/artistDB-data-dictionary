@@ -1,0 +1,35 @@
+title: artwork_sequence
+description:  holds the latest integer based on year and category. It is used to generate the next sequence number for an artwork's catalog number.
+erd_link: 
+include_id: true
+fields:
+  - name: year
+    data_type: INT
+    description: The year associated with the artwork sequence
+    constraints: NOT NULL
+    keys: PK (Composite)
+    indexed: indexed
+    default_value: 
+
+  - name: category
+    data_type: <a href="#"><code>artwork_category</code></a>
+    description: The category of the artwork
+    constraints: NOT NULL
+    keys: PK (Composite)
+    indexed: indexed
+    default_value: 
+
+  - name: last_sequence_number
+    data_type: INT
+    description: The last sequence number used for the year and category
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

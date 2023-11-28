@@ -1,0 +1,72 @@
+title: valuations
+description: tracks the appraised value of artworks and editions over time, providing a historical record of their assessed worth. Each row in the table represents a unique valuation event, which can be associated with an artwork or an edition, and may involve an appraising organization or individual. The table includes details such as the type of valuation, the date it was conducted, and descriptive notes, offering a comprehensive overview of the artwork's or edition's value trajectory.
+erd_link: assets/images/valuations_ERD.png
+include_id: true
+fields:
+  - name: artwork_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork(id)</code></a>
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: edition_id
+    data_type: INT
+    description: REF <a href="#"><code>edition(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: organization_id
+    data_type: INT
+    description: REF <a href="#"><code>organizations(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: person_id
+    data_type: INT
+    description: REF <a href="#"><code>people(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: amount
+    data_type: NUMERIC(10, 2)
+    description: Valuation amount
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: valuation_type
+    data_type: <a href="#"><code>val_type</code></a>
+    description: Type of valuation
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: valuation_date
+    data_type: DATE
+    description: Date of the valuation
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: valuation_description
+    data_type: TEXT
+    description: Description of the valuation
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 
+
+faq:
+  - question: Why not simply put a value field in artwork and edition tables?
+    answer: >
+      Because the value of an artwork or edition changes over time, and we want to track that change.  For example, an artwork may be appraised at $100,000 in 2010, but appraised at $150,000 in 2015.  The `valuations` table allows us to track the change in value over time.  It also allows us to track the appraiser, the date of the appraisal, and any notes about the appraisal.  This information is not available if we simply put a value field in the artwork and edition tables.

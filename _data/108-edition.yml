@@ -1,0 +1,52 @@
+title: edition
+description: records a single edition (i.e. 'copy') of an editioned artwork.
+erd_link: assets/images/edition_ERD.png
+include_id: true
+fields:
+  - name: edition_meta_id
+    data_type: INT
+    description: references the edition metadata
+    constraints: NOT NULL
+    keys: FK
+    indexed: indexed
+    default_value: 
+
+  - name: type
+    data_type: <a href="#"><code>edition_type</code></a>
+    description: Type of the individual piece within an edition
+    constraints: NOT NULL
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: number
+    data_type: INT
+    description: Number (along with `type`) piece within an edition
+    constraints: '>= 0, NOT NULL'
+    keys: 
+    indexed: 
+    default_value: 
+
+  - name: artwork_storage_id
+    data_type: INT
+    description: REF <a href="#"><code>artwork_storage(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: singular_attributes_id
+    data_type: INT
+    description: REF <a href="#"><code>singular_attributes(id)</code></a>
+    constraints: 
+    keys: FK
+    indexed: 
+    default_value: 
+
+  - name: notes
+    data_type: TEXT
+    description: Additional notes
+    constraints: 
+    keys: 
+    indexed: 
+    default_value: 

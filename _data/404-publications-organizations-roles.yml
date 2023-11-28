@@ -1,0 +1,29 @@
+title: publications_organizations_roles
+description: defines various roles organizations may play in relation to publications-- such as publisher, broadcaster, etc.
+erd_link: 
+include_id: true
+fields:
+  - name: role
+    data_type: VARCHAR(100)
+    description: The role of the organization in relation to the publication
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: A textual description of the role
+    constraints: 
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

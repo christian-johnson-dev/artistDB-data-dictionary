@@ -1,0 +1,71 @@
+title: publications
+description: records various types of publications such as books, articles, videos, etc., that are related to the artist's work.
+erd_link: 
+include_id: true
+fields:
+  - name: title
+    data_type: VARCHAR(255)
+    description: Title of the publication
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: pub_date
+    data_type: DATE
+    description: Publication date
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: pages
+    data_type: VARCHAR(20)
+    description: Page number or page range
+    constraints: 
+    keys: 
+    default_value: 
+
+  - name: include_short_bib
+    data_type: BOOLEAN
+    description: Flag for short bibliography
+    constraints: NOT NULL
+    keys: 
+    default_value: TRUE
+
+  - name: include_full_bib
+    data_type: BOOLEAN
+    description: Flag for full bibliography
+    constraints: NOT NULL
+    keys: 
+    default_value: TRUE
+
+  - name: url
+    data_type: VARCHAR(255)
+    description: URL where the publication can be accessed
+    constraints: 
+    keys: 
+    default_value: 
+
+  - name: pub_type
+    data_type: publication_type
+    description: Type of the publication
+    constraints: NOT NULL
+    keys: 
+    default_value: book
+
+  - name: description
+    data_type: TEXT
+    description: A brief description of the publication
+    constraints: 
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 

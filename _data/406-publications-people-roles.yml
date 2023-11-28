@@ -1,0 +1,29 @@
+title: title
+description: stores the different roles that people can have in relation to publications.
+erd_link: 
+include_id: true
+fields:
+  - name: role
+    data_type: VARCHAR(100)
+    description: Title/name of role
+    constraints: NOT NULL
+    keys: 
+    default_value: 
+
+  - name: description
+    data_type: TEXT
+    description: Description of the role
+    constraints: 
+    keys: 
+    default_value: 
+
+table-validations:
+  # - plain:
+  #   code: >
+  
+faq:
+  # - question: 
+  #   answer: 
+  
+  # - question: 
+  #   answer: 
